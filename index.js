@@ -49,3 +49,13 @@ console.log(
 
 // find(value)
 console.log("What index is value 'link-3' at?", linkedList.find("link-3"));
+
+// insertAt(value,index)
+console.log("insert 'foo' at index 3");
+linkedList.insertAt("foo", 3);
+console.log("updated linked list:", linkedList.toString());
+
+// removeAt(value,index)
+console.log("remove 'foo' at index 3");
+linkedList.removeAt(3);
+console.log("updated linked list:", linkedList.toString());

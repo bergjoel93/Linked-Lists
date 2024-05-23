@@ -202,6 +202,57 @@ class LinkedList {
     printString += "null";
     return printString;
   }
+
+  ///EXTRA CREDIT/////
+
+  /**
+   * insertAt(value,index) inserts a new node with the provided value at the given index.
+   * @param {value} - the value you want to insert.
+   * @param {number} - the index you choose.
+   *
+   */
+
+  insertAt(value, index) {
+    // first check for valid index
+    if (index < 0 || index >= this.size) {
+      error.log("Invalid index yo");
+    }
+
+    let nodeBefore = this.head;
+    // Iterate through the linked list to find the node before the desired index.
+    for (let i = 0; i < index - 1; i++) {
+      nodeBefore = nodeBefore.next;
+    }
+
+    // create a new node
+    let newNode = new Node(value);
+
+    // assign the newNode.next to the node at index 3.
+    newNode.next = nodeBefore.next;
+
+    //assign before node.next to point to new node
+    nodeBefore.next = newNode;
+  }
+
+  /**
+   * removeAt(index) removes the node at the given index
+   * @param {number} - index
+   */
+  removeAt(index) {
+    // first check for valid index
+    if (index < 0 || index >= this.size) {
+      error.log("Invalid index yo");
+    }
+    let nodeBefore = this.head;
+    // Iterate through the linked list to find the node before the desired index.
+    for (let i = 0; i < index - 1; i++) {
+      nodeBefore = nodeBefore.next;
+    }
+    // initializes the node after that is to be removed.
+    let nodeAfter = nodeBefore.next.next;
+
+    nodeBefore.next = nodeAfter;
+  }
 }
 
 export default LinkedList;
